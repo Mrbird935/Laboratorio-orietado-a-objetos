@@ -1,0 +1,21 @@
+void setup(){
+
+  size(800, 600);
+  background(222, 99, 22);
+
+}
+
+void draw(){
+fill(0, 0, 0);  
+rect(width/5, height/1.2, 130, 10 );
+rect(width/3.65, height/2, 10, 200);
+rect(width/3.65, height/2, 130, 10);
+rect(width/2.35, height/2, 10, 50);
+line(425, 500, 450, 500);
+line(475, 500, 500, 500);
+line(525, 500, 550, 500);
+line(575, 500, 600, 500);
+line(625, 500, 650, 500);
+line(675, 500, 700, 500);
+
+}
