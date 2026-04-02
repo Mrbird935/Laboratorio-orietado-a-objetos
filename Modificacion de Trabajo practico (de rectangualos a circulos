@@ -1,0 +1,30 @@
+float radio;
+float xc, yc;
+boolean HayColision (int px, int py, int cx, int cy, int r) {
+  float d = dist(px, py, cx, cy);
+  if (d < r) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+void setup() {
+  size(800, 600);
+  radio = 100;
+  xc = random(radio, width - radio);
+  yc = random(radio, height - radio);
+}
+
+void draw() {
+  background(157, 146, 146);
+
+  if (HayColision(mouseX, mouseY, int(xc), int(yc), int(radio))) {
+
+    fill(222, 99, 22);
+  } else {
+    fill(255, 255, 255);
+  }
+
+  circle(xc, yc, radio * 2);
+}
