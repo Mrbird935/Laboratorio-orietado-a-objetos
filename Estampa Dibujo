@@ -1,0 +1,23 @@
+void setup() {
+
+  size(800, 600);
+  background(222, 99, 22);
+  strokeWeight(2);
+}
+
+void draw() {
+
+  if (mousePressed) {
+
+    hacerDibujo(mouseX, mouseY, 240, 120);
+  }
+}
+
+void hacerDibujo(float x, float y, float w, float h) {
+
+  fill(0, 0, 0);
+  rect(x+w/5, y+h/1.2, w*0.16, h*0, 02);
+  rect(x+w/3.65, y+h/2, w*0.012, h*0.33);
+  rect(x+w/3.65, y+h/2, w*0.16, h*0.02);
+  rect(x+w/2.35, y+h/2, w*0.012, h*0.08);
+}
