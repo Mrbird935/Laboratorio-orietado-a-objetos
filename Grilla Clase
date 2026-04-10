@@ -1,0 +1,23 @@
+int cant_fila= 15;
+int cant_column=9;
+
+boolean[][]fueClickeado;
+
+void setup() {
+
+  size(800, 600);
+  fueClickeado= new boolean [cant_fila][cant_column];
+}
+
+void draw() {
+
+  float Ancho = width/cant_column;
+  float Alto = height/cant_fila;
+  for (int i = 0; i < 9; i++) {
+    for (int j = 0; j < 15; j++) {
+      float  x= i*Ancho;
+      float  y= j*Alto;
+      rect(x, y, Ancho, Alto);
+    }
+  }
+}
