@@ -1,0 +1,34 @@
+int column = 20;
+int fila = 20;
+float[][] distancia;
+
+void setup() {
+  size(800, 600);
+  distancia = new float[column][fila];
+  noStroke();
+}
+
+void draw() {
+  background(0);
+  
+  float w = width / (float)column;
+  float h = height / (float)fila;
+
+  for (int i = 0; i < column; i++) {
+    for (int j = 0; j < fila; j++) {
+      
+      float centroX = i * w + w/2;
+      float centroY = j * h + h/2;
+      
+      float d = dist(mouseX, mouseY, centroX, centroY);
+      distancia[i][j] = d;
+      
+      float gris = map(distancia[i][j], 0, 400, 255, 0);
+      
+      gris = constrain(gris, 0, 255);
+      
+      fill(gris);
+      rect(i * w, j * h, w, h);
+    }
+  }
+}
