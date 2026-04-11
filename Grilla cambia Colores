@@ -1,0 +1,45 @@
+int column = 16;
+int fila = 9;
+boolean[][] estados = new boolean[column][fila];
+
+float tamAn, tamAl;
+
+void setup() {
+  size(800, 600);
+  tamAn = width / (float)column;
+  tamAl = height / (float)fila;
+}
+
+void draw() {
+  background(40);
+  
+  for (int i = 0; i < column; i++) {
+    for (int j = 0; j < fila; j++) {
+      
+      float x = i * tamAn;
+      float y = j * tamAl;
+      
+      if (estados[i][j] == true) {
+        fill(222, 99, 22); 
+      } else {
+        fill(255);
+      }
+      
+      stroke(0);
+      rect(x, y, tamAn, tamAl);
+    }
+  }
+}
+
+void mousePressed() {
+  int i = int(mouseX / tamAn);
+  int j = int(mouseY / tamAl);
+
+  if (i >= 0 && i < column && j >= 0 && j < fila) {
+if (estados[i][j] == true) {
+  estados[i][j] = false;
+} else {
+  estados[i][j] = true;
+}
+  }
+}
