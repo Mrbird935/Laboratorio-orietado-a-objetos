@@ -5,7 +5,6 @@ float[][] distancia;
 void setup() {
   size(800, 600);
   distancia = new float[column][fila];
-  noStroke();
 }
 
 void draw() {
