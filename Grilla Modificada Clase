@@ -1,0 +1,34 @@
+int cant_fila=15;
+int cant_column=15;
+
+boolean[][]fueClickeado;
+
+void setup() {
+
+  size(800, 600);
+  fueClickeado=new boolean[cant_fila][cant_column];
+}
+
+void draw() {
+
+  float Ancho=width/cant_fila;
+  float Alto=height/cant_column;
+
+  for (int i=0; i<cant_fila; i++) {
+    for (int j=0; j<cant_column; j++) {
+      float x=i*Ancho;
+      float y=j*Alto;
+      float limite_Derecho= x+Ancho;
+      float limite_Infer= y+Alto;
+
+      if (mousePressed) {
+        if ((x<mouseX) && (mouseX<limite_Derecho) && (y<mouseY) && (mouseY<limite_Infer)) {
+          fueClickeado[i][j]=true;
+        }
+      }
+        if ((fueClickeado[i][j]))fill(0);
+        else fill(255);
+       rect(x, y, Ancho, Alto);
+    }
+  }
+}
