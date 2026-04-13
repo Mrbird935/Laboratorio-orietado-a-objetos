@@ -1,0 +1,48 @@
+int cols = 10;
+int filas = 10;
+boolean[][][] laberinto = new boolean[cols][filas][6];
+
+float tWidth, tHeight;
+
+void setup() {
+  size(800, 600);
+  tWidth = width / (float)cols;
+  tHeight = height / (float)filas;
+  
+  generarLaberinto();
+}
+
+void draw() {
+  background(255);
+
+  for (int i = 0; i < cols; i++) {
+    for (int j = 0; j < filas; j++) {
+      float x = i * tWidth;
+      float y = j * tHeight;
+      
+      if (laberinto[i][j][0]) line(x, y, x + tWidth, y);
+      if (laberinto[i][j][1]) line(x, y + tHeight, x + tWidth, y + tHeight);
+      if (laberinto[i][j][2]) line(x + tWidth, y, x + tWidth, y + tHeight);
+      if (laberinto[i][j][3]) line(x, y, x, y + tHeight);
+      
+      stroke(200);
+      if (laberinto[i][j][4]) line(x, y, x + tWidth, y + tHeight);
+      if (laberinto[i][j][5]) line(x + tWidth, y, x, y + tHeight);
+      stroke(0);
+    }
+  }
+}
+
+void generarLaberinto() {
+  for (int i = 0; i < cols; i++) {
+    for (int j = 0; j < filas; j++) {
+      for (int k = 0; k < 6; k++) {
+        laberinto[i][j][k] = random(1) > 0.5;
+      }
+    }
+  }
+}
+
+void mousePressed() {
+  generarLaberinto();
+}
