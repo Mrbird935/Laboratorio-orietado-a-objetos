@@ -1,0 +1,32 @@
+int cantBarras = 20;
+float[] alturas = new float[cantBarras];
+float anchoBarra;
+
+void setup() {
+  size(800, 600);
+  anchoBarra = width / (float)cantBarras;
+  
+  for (int i = 0; i < cantBarras; i++) {
+    alturas[i] = height / 2;
+  }
+}
+
+void draw() {
+  background(30);
+  
+  if (mousePressed) {
+    int indice = int(mouseX / anchoBarra);
+    
+    if (indice >= 0 && indice < cantBarras) {
+      alturas[indice] = constrain(mouseY, 0, height);
+    }
+  }
+
+  for (int i = 0; i < cantBarras; i++) {
+    float luz = map(alturas[i], 0, height, 255, 50);
+    fill(0, 150, luz); 
+    stroke(255, 50);
+    
+    rect(i * anchoBarra, height, anchoBarra, -alturas[i]);
+  }
+}
