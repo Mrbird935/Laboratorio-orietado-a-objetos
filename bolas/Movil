@@ -1,0 +1,37 @@
+class Movil {
+
+PVector pos;
+PVector vel = new PVector (5,4);
+float d = 40;
+
+Movil (float originx, float originy){
+  
+ pos= new PVector(originx, originy); 
+  
+}
+void mostrar(){
+fill(222,99,222);
+d=random(40,100);
+frameRate(30);
+  circle(pos.x,pos.y,d);
+
+}
+
+void contener(){
+  vel.rotate(PI/300);
+  if (pos.x < 0 || pos.x > width) {
+    vel.x=vel.x*-1;
+  }
+    if (pos.y < 0 || pos.y > height) {
+    vel.y=vel.y*-1;
+    }
+  
+}
+
+void mover(){
+
+pos.add(vel);
+
+}
+
+}
