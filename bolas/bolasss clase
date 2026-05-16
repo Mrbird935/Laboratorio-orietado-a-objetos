@@ -1,1 +1,35 @@
+Movil m;
+Movil otro;
+Movil mimi;
+Movil momo;
+float h;
+float s;
+float b;
+void setup() {
+
+  size(800, 600);
+  colorMode(HSB, 600, 100, 100);
+  m = new Movil (width/2, height/2);
+  otro = new Movil (500, 600);
+  mimi = new Movil (300, 400);
+  momo = new Movil (200, 300);
+}
+void draw() {
+  h = m.pos.y;
+  s = 100.0;
+  b = 100.0;
+  background(h, s, b);
+  m.mover();
+  otro.mover();
+  mimi.mover();
+  momo.mover();
+  m.contener();
+  otro.contener();
+  mimi.contener();
+  momo.contener();
+  m.mostrar();
+  otro.mostrar();
+  mimi.mostrar();
+  momo.mostrar();
+}
 
