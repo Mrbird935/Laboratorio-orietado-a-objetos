@@ -1,0 +1,7 @@
+class Movil {
+  PVector pos;
+  
+  Movil(PVector p) {
+    pos = p;
+  }
+}
