@@ -1,0 +1,21 @@
+int n = 14;
+Movil[] robots = new Movil[n]; 
+
+void setup() {
+  size(800, 400);
+  
+  for (int i = 0; i < n; i++) {
+    robots[i] = new Movil(new PVector(23 + (i * 58), 200));
+  }
+}
+
+void draw() {
+  background(222,99,22);
+  for (int i = 0; i < n; i++) {
+    fill(150, 255,0);
+    ellipse(robots[i].pos.x, robots[i].pos.y, 40, 40); 
+    fill(0);
+    textAlign(CENTER, CENTER);
+    text(i, robots[i].pos.x, robots[i].pos.y);
+  }
+}
