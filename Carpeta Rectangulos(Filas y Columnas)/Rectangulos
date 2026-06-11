@@ -1,0 +1,39 @@
+int filas = 4;
+int columnas = 4;
+// Declaramos e inicializamos la matriz en una sola línea de código
+Movil[][] posicion = new Movil[filas][columnas]; 
+
+void setup() {
+  size(800, 600);
+  
+  for (int f = 0; f < filas; f++) {
+    for (int c = 0; c < columnas; c++) {
+      // Enviamos directamente los datos al constructor minimalista
+      posicion[f][c] = new Movil(f, c);
+    }
+  }
+}
+
+void draw() {
+  background(220);
+  rectMode(CENTER); // Configuramos el modo de dibujo para los rectángulos simples
+  
+  // El programa principal recorre la matriz, calcula los píxeles al vuelo y dibuja
+  for (int f = 0; f < filas; f++) {
+    for (int c = 0; c < columnas; c++) {
+      
+      // Hacemos el cálculo matemático directo de los píxeles aquí mismo
+      float x = 100 + (c * 190);
+      float y = 80 + (f * 150);
+      
+      // Dibujamos un rectángulo naranja muy simple para representar el "coche"
+      fill(255, 150, 50);
+      rect(x, y, 120, 70); 
+      
+      // Accedemos a las variables internas de la clase para pintar el texto
+      fill(0);
+      textAlign(CENTER, CENTER);
+      text("F:" + posicion[f][c].fila + " C:" + posicion[f][c].columna, x, y);
+    }
+  }
+}
