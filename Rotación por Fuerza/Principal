@@ -1,0 +1,21 @@
+PVector f = new PVector(0.05,0);
+
+movil m;
+
+void setup() {
+
+  size(1000,600);
+
+  m = new movil(width/2,height/2);
+}
+
+void draw() {
+
+  background(0);
+
+  m.agregarfuerza(f);
+
+  m.mover();
+
+  m.mostrar();
+}
