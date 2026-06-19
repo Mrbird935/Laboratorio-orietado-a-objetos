@@ -1,0 +1,62 @@
+class movil {
+
+  PVector pos, vel;
+  PVector acel = new PVector(0,0);
+
+  int r = 40;
+
+  float angulo = 0;
+
+  movil(float x, float y) {
+
+    pos = new PVector(x,y);
+    vel = new PVector(1,1);
+  }
+
+  void contener() {
+
+    if (pos.x < 0 || pos.x > width) {
+
+      pos.sub(vel);
+
+      vel.x *= -1;
+    }
+
+    if (pos.y < 0 || pos.y > height) {
+
+      pos.sub(vel);
+
+      vel.y *= -1;
+    }
+  }
+
+  void mover() {
+
+    vel.add(acel);
+
+    pos.add(vel);
+
+    angulo += 0.05;
+
+    acel.mult(0);
+
+    contener();
+  }
+
+  void agregarfuerza(PVector F) {
+
+    acel.add(F);
+  }
+
+  void mostrar() {
+
+    ellipse(pos.x,pos.y,r*2,r*2);
+
+    line(
+      pos.x,
+      pos.y,
+      pos.x + cos(angulo)*r,
+      pos.y + sin(angulo)*r
+    );
+  }
+}
