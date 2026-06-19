@@ -1,0 +1,34 @@
+movil m;
+movil m2;
+
+void setup() {
+
+  size(1000, 600);
+
+  m = new movil(width/2, height/2);
+
+  m2 = new movil(100, 100);
+
+  m.vel = new PVector(3, 0);
+}
+
+void draw() {
+
+  background(0);
+
+  PVector direccion;
+
+  direccion = PVector.sub(m.pos, m2.pos);
+
+  direccion.normalize();
+
+  direccion.mult(0.1);
+
+  m2.agregarfuerza(direccion);
+
+  m.mover();
+  m2.mover();
+
+  m.mostrar();
+  m2.mostrar();
+}
