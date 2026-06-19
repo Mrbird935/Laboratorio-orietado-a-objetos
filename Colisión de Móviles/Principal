@@ -1,0 +1,38 @@
+PVector g = new PVector(0,1);
+
+movil m;
+movil m2;
+
+void setup() {
+
+  size(1000,600);
+
+  m = new movil(width/3,height/2);
+
+  m2 = new movil(width/2,height/2);
+}
+
+void draw() {
+
+  background(0);
+
+  m.agregarfuerza(g);
+  m2.agregarfuerza(g);
+
+  if(m.choca(m2.pos,m2.r)) {
+
+    m.alejar(m2.pos,5);
+
+    m2.alejar(m.pos,5);
+
+    m.r--;
+
+    m2.r--;
+  }
+
+  m.mover();
+  m2.mover();
+
+  m.mostrar();
+  m2.mostrar();
+}
