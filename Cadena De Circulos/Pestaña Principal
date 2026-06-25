@@ -1,0 +1,48 @@
+movil[] m = new movil[5];
+
+void setup() {
+
+  size(1000,600);
+
+  for(int i=0; i<m.length; i++) {
+
+    m[i] = new movil(100+i*50,300);
+  }
+}
+
+void draw() {
+
+  background(0);
+
+  for(int i=0; i<m.length-1; i++) {
+
+    PVector dir = m[i+1].pos.copy();
+
+    dir.sub(m[i].pos);
+
+    dir.normalize();
+
+    dir.mult(0.1);
+
+    m[i].agregarfuerza(dir);
+  }
+
+  PVector mouse = new PVector(mouseX,mouseY);
+
+  PVector dir = mouse.copy();
+
+  dir.sub(m[m.length-1].pos);
+
+  dir.normalize();
+
+  dir.mult(0.1);
+
+  m[m.length-1].agregarfuerza(dir);
+
+  for(int i=0; i<m.length; i++) {
+
+    m[i].mover();
+
+    m[i].mostrar();
+  }
+}
