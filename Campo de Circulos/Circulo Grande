@@ -1,0 +1,16 @@
+class movil{
+PVector pos;
+
+int r = 150;
+
+movil(float originx, float originy){
+
+  pos = new PVector (originx,originy);  
+}
+
+void mostrar(){
+
+circle(width/2,height/2, r);
+
+}
+}
