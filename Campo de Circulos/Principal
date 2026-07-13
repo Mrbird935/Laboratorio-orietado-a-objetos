@@ -1,0 +1,14 @@
+movil C;
+movil[] c = new movil[20];
+void setup() {
+
+  C = new movil (width/2, height/2);
+
+  size(800, 600);
+}
+
+void draw() {
+background(222,99,22);
+C.mostrar();
+
+}
